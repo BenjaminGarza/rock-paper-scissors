@@ -7,37 +7,66 @@
         return "Paper";
         break;
 
-        case 1:
+      case 1:
         return "Scissors";
         break;
 
-        case 2:
+      case 2:
         return "Rock";
         break;
       default:
         break;
     }
   }
-  function playRound(playerSelection, computerSelection){
+
+  function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
-    if (playerSelection == computerSelection){
+    if (playerSelection == computerSelection) {
       return "It's a tie!"
-    } else if (playerSelection == "rock" && computerSelection == "scissors"){
+    } else if (playerSelection == "rock" && computerSelection == "scissors") {
       return "Player wins!"
-    }  else if (playerSelection == "paper" && computerSelection == "rock"){
+    } else if (playerSelection == "paper" && computerSelection == "rock") {
       return "Player wins!"
-    } else if (playerSelection == "scissors" && computerSelection == "paper"){
+    } else if (playerSelection == "scissors" && computerSelection == "paper") {
       return "Player wins!"
-    } else if (playerSelection == "rock" && computerSelection == "paper"){
+    } else if (playerSelection == "rock" && computerSelection == "paper") {
       return "Computer wins!"
-    } else if (playerSelection == "paper" && computerSelection == "scissors"){
+    } else if (playerSelection == "paper" && computerSelection == "scissors") {
       return "Computer wins!"
-    } else if (playerSelection == "scissors" && computerSelection == "rock"){
+    } else if (playerSelection == "scissors" && computerSelection == "rock") {
       return "Computer wins!"
     }
   }
-  const playerSelection = "rock";
-  const computerSelection = computerPlay();
-  console.log(playRound(playerSelection, computerSelection))
+
+  function validateInput(input) {
+    var validOptions = ["scissors", "paper", "rock"];
+    if (validOptions.includes(input) == false) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  function game() {
+    for (let i = 1; i <= 5; i++) {
+      var computerSelection = computerPlay();
+
+      do {
+        var playerSelection = prompt(`Round ${i}:  Choose paper, rock or scissors :D `);
+
+        if (Number(playerSelection)) {
+          console.log("No numbers allowed!");
+        } 
+      } while (Number(playerSelection));
+      let gameStart = playRound(playerSelection, computerSelection);
+      if(gameStart != undefined){
+        console.log(`Round ${i}: ` + gameStart );
+      }else{
+        console.log("Invalid input!");
+      }
+    }
+
+  };
+  game();
 </script>
