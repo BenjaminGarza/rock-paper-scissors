@@ -40,7 +40,7 @@
   }
 
   function validateInput(input) {
-    var validOptions = ["scissors", "paper", "rock"];
+    const validOptions = ["scissors", "paper", "rock"];
     if (validOptions.includes(input) == false) {
       return true;
     } else {
@@ -50,15 +50,8 @@
 
   function game() {
     for (let i = 1; i <= 5; i++) {
-      var computerSelection = computerPlay();
-
-      do {
-        var playerSelection = prompt(`Round ${i}:  Choose paper, rock or scissors :D `);
-
-        if (Number(playerSelection)) {
-          console.log("No numbers allowed!");
-        } 
-      } while (Number(playerSelection));
+      let computerSelection = computerPlay();
+      let playerSelection = prompt(`Round ${i}:  Choose paper, rock or scissors :D `);
       let gameStart = playRound(playerSelection, computerSelection);
       if(gameStart != undefined){
         console.log(`Round ${i}: ` + gameStart );
@@ -66,7 +59,6 @@
         console.log("Invalid input!");
       }
     }
-
   };
   game();
 </script>
