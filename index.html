@@ -39,19 +39,14 @@
     }
   }
 
-  function validateInput(input) {
-    const validOptions = ["scissors", "paper", "rock"];
-    if (validOptions.includes(input) == false) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
   function game() {
     for (let i = 1; i <= 5; i++) {
       let computerSelection = computerPlay();
       let playerSelection = prompt(`Round ${i}:  Choose paper, rock or scissors :D `);
+      if (playerSelection == null){
+        console.log("Goodbye");
+        return
+      }
       let gameStart = playRound(playerSelection, computerSelection);
       if(gameStart != undefined){
         console.log(`Round ${i}: ` + gameStart );
