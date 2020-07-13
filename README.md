@@ -1,4 +1,4 @@
-# rock-paper-scissors
+# Rock-Paper-Scissors
 
 The first Javascript project in The Odin Project curriculum.
 A rock-paper-scissors game played in the web browser and developer console.
